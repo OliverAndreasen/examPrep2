@@ -26,12 +26,11 @@ public class Main {
 
 
         /* Opgave 3 */
-        User user = new User("Oliver Andreasen", "oliv2058");
-
+        User user = new User("Oliver Andreasen");
         System.out.println(user.validateUserID());
-
         System.out.println(user.getUserID());
         user.createUserID();
+        System.out.println(user.validateUserID());
         System.out.println(user.getUserID());
     }
 }

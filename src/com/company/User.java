@@ -5,11 +5,10 @@ import java.util.Random;
 public class User {
 
     String fullName;
-    String userID;
+    String userID = null;
 
-    public User(String fullName, String userID) {
+    public User(String fullName) {
         this.fullName = fullName;
-        this.userID = userID;
     }
 
     public String getUserID() {
@@ -26,24 +25,26 @@ public class User {
 
     boolean validateUserID(){
 
-        if (userID.length() == 8) {
-            String firstFour = userID.substring(0,4);
-            String lastFour = userID.substring(4,8);
+        if(userID != null) {
+            if (userID.length() == 8) {
+                String firstFour = userID.substring(0, 4);
+                String lastFour = userID.substring(4, 8);
 
 
-            char[] firstFourChars = firstFour.toCharArray();
+                char[] firstFourChars = firstFour.toCharArray();
 
-            for (int i = 0; i < firstFourChars.length; i++) {
-                if(!Character.isLowerCase((firstFourChars[i]))){
-                    return false;
+                for (int i = 0; i < firstFourChars.length; i++) {
+                    if (!Character.isLowerCase((firstFourChars[i]))) {
+                        return false;
+                    }
                 }
-            }
 
-            boolean validateFirstFour = firstFour.matches("[a-zA-Z]+");
-            if (validateFirstFour) {
-                boolean validateLastFour = lastFour.matches("[0-9]+");
-                if(validateLastFour) {
-                    return true;
+                boolean validateFirstFour = firstFour.matches("[a-zA-Z]+");
+                if (validateFirstFour) {
+                    boolean validateLastFour = lastFour.matches("[0-9]+");
+                    if (validateLastFour) {
+                        return true;
+                    }
                 }
             }
         }
