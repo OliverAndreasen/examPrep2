@@ -16,21 +16,19 @@ public class Article {
 
     public String getLongestWord() {
         String result = "";
-        String words[] = body.split(" ");
+        String[] words = body.split(" ");
         int current = 0;
         int longest = 0;
         String longestWord = "";
 
-        for (int i = 0; i < words.length; i++) {
-            current = words[i].length();
+        for (String word : words) {
+            current = word.length();
 
             if (current > longest) {
                 longest = current;
-                longestWord = words[i];
+                longestWord = word;
             }
         }
-
-
         return longestWord;
     }
 
@@ -43,5 +41,15 @@ public class Article {
             }
         }
         return uniqueWords;
+    }
+
+    public String getUniqueWordsToString() {
+        String result = "";
+        for (int i = 0; i < getWords().size(); i++) {
+
+            result += getWords().get(i);
+            result += " ";
+        }
+        return result;
     }
 }
